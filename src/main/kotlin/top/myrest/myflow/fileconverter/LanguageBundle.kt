@@ -1,8 +1,8 @@
-package com.example.kotlin
+package top.myrest.myflow.fileconverter
 
 class LanguageBundle {
 
-    var xxx = ""
+    var pdfToImage = "Pdf To Image"
 
     companion object {
 

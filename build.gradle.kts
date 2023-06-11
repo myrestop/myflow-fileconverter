@@ -21,6 +21,7 @@ val myflowVersion = "1.0.0"
 dependencies {
     compileOnly(compose.desktop.currentOs)
     compileOnly("top.myrest:myflow-kit:$myflowVersion")
+    implementation("org.apache.pdfbox:pdfbox:2.0.28")
     testImplementation("top.myrest:myflow-baseimpl:$myflowVersion")
 }
 
