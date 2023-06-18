@@ -41,8 +41,7 @@ class Pdf2ImageActionHandler : ActionKeywordHandler {
                     score = 98,
                     logo = "./logos/pdf2image.png",
                     title = listOf(LanguageBundle.INSTANCE.pdfToImage.highlight),
-                    result = firstArg.value,
-                    callbacks = singleCallback { if (it is File) convert2Image(it) },
+                    callbacks = singleCallback(result = firstArg.value) { if (it is File) convert2Image(it) },
                 ),
             )
         }
