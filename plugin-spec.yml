@@ -30,5 +30,5 @@ actions:
     keywords:
       - '*'
       - pdf2image
-    handler-class-name: top.myrest.myflow.fileconverter.Pdf2ImageActionHandler
+    handler: top.myrest.myflow.fileconverter.Pdf2ImageActionHandler
     description-bundle-id: desc.pdf2image

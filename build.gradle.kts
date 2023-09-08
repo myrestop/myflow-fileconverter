@@ -38,9 +38,11 @@ tasks.jar {
             }
         },
     )
-    exclude("META-INF/DEPENDENCIES")
-    exclude("META-INF/LICENSE")
-    exclude("META-INF/NOTICE")
+    exclude(
+        "META-INF/DEPENDENCIES",
+        "META-INF/LICENSE",
+        "META-INF/NOTICE",
+    )
 }
 
 tasks.build {
