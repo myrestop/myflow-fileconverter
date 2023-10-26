@@ -2,14 +2,12 @@ id: top.myrest.myflow.fileconverter
 name: File Format Conversion
 names:
   ZH_CN: 文件格式转换
-  ZH_TW: 文件格式轉換
 entry: ./myflow-fileconverter.jar
 version: 1.0.0
 logo: ./logos/file_converter.png
 compatible-version:
   since-build: 0
   until-build: 2147483647
-description-filename: description.md
 owner:
   name: myrest
   email: myflow@myrest.top
@@ -20,10 +18,6 @@ platforms:
   - WINDOWS
   - MACOS
   - LINUX
-languages:
-  - EN_US
-  - ZH_CN
-  - ZH_TW
 language-bundle-name: top.myrest.myflow.fileconverter.LanguageBundle
 actions:
   - logo: ./logos/pdf2image.png
