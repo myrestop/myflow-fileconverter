@@ -1,7 +1,7 @@
 id: top.myrest.myflow.fileconverter
-name: File Format Conversion
+name: File Conversion
 names:
-  ZH_CN: 文件格式转换
+  ZH_CN: 文件转换
 entry: ./myflow-fileconverter.jar
 version: 1.0.0
 logo: ./logos/file_converter.png
@@ -10,7 +10,7 @@ compatible-version:
   until-build: 2147483647
 owner:
   name: myrest
-  email: myflow@myrest.top
+  email: mrpan@myrest.top
   homepage: https://myrest.top/myflow
 categories:
   - PRODUCTIVITY

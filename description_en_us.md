@@ -1,0 +1,1 @@
+This is a file converter plugin, currently supports convert pdf to image.
