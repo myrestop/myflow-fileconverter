@@ -1,7 +1,7 @@
 id: top.myrest.myflow.fileconverter
-name: File Conversion
+name: File Converter
 names:
-  ZH_CN: 文件转换
+  ZH_CN: 文件转换器
 entry: ./myflow-fileconverter.jar
 version: 1.0.0
 logo: ./logos/file_converter.png
