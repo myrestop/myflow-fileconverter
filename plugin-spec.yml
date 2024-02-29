@@ -25,5 +25,4 @@ actions:
       - '*'
       - pdf2image
     handler: top.myrest.myflow.fileconverter.Pdf2ImageActionHandler
-    description-bundle-id: desc.pdf2image
-    name-bundle-id: Pdf2Image
+    name-bundle-id: pdf-to-image
