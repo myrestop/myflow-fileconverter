@@ -3,11 +3,11 @@ name: File Converter
 names:
   ZH_CN: 文件转换器
 entry: ./myflow-fileconverter.jar
-version: 1.0.1
+version: 1.0.2
 logo: ./logos/file_converter.png
 compatible-version:
-  since-build: 0
-  until-build: 2147483647
+  since-build: 1
+  until-build: 362
 owner:
   name: myrest
   email: mrpan@myrest.top

@@ -5,11 +5,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.20"
-    id("org.jetbrains.compose") version "1.5.1"
+    id("org.jetbrains.compose") version "1.5.12"
 }
 
 group = "top.myrest"
-version = "1.0.1"
+version = "1.0.2"
 val entry = "$name.jar"
 
 repositories {
@@ -19,7 +19,7 @@ repositories {
     google()
 }
 
-val myflowVersion = "1.0.0"
+val myflowVersion = "1.0.6"
 
 dependencies {
     compileOnly(compose.desktop.currentOs)
@@ -33,6 +33,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     archiveFileName.set(entry)
     from(
         configurations.runtimeClasspath.get().allDependencies.flatMap { dependency ->
@@ -40,11 +41,6 @@ tasks.jar {
                 if (file.isDirectory) file else zipTree(file)
             }
         },
-    )
-    exclude(
-        "META-INF/DEPENDENCIES",
-        "META-INF/LICENSE",
-        "META-INF/NOTICE",
     )
 }
 
