@@ -12,6 +12,7 @@ import top.myrest.myflow.action.ActionParam
 import top.myrest.myflow.action.ActionResult
 import top.myrest.myflow.action.highlight
 import top.myrest.myflow.action.singleCallback
+import top.myrest.myflow.language.LanguageBundle
 
 class Pdf2ImageActionHandler : ActionKeywordHandler {
 
@@ -24,7 +25,7 @@ class Pdf2ImageActionHandler : ActionKeywordHandler {
                     actionId = actionId,
                     score = 100,
                     logo = "./logos/pdf2image.png",
-                    title = listOf(LanguageBundle.INSTANCE.pdfToImage.highlight),
+                    title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, "pdf-to-image").highlight),
                     callbacks = singleCallback {
                         val list = AppInfo.actionWindow.showFileChooser(filenameFilter = { _, name -> name?.isPdf() == true })
                         convert2Image(list.firstOrNull())
@@ -40,7 +41,7 @@ class Pdf2ImageActionHandler : ActionKeywordHandler {
                     actionId = actionId,
                     score = 98,
                     logo = "./logos/pdf2image.png",
-                    title = listOf(LanguageBundle.INSTANCE.pdfToImage.highlight),
+                    title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, "pdf-to-image").highlight),
                     callbacks = singleCallback(result = firstArg.value) { if (it is File) convert2Image(it) },
                 ),
             )
@@ -54,14 +55,13 @@ class Pdf2ImageActionHandler : ActionKeywordHandler {
             return
         }
 
-        val dir = pdf.parent
         val name = FileUtil.mainName(pdf)
         val doc = PDDocument.load(pdf)
         val renderer = PDFRenderer(doc)
 
         for (i in 0 until doc.numberOfPages) {
             val image = renderer.renderImageWithDPI(i, 300f)
-            ImgUtil.write(image, File(dir + File.separator + name + "_" + (i + 1) + ".png"))
+            ImgUtil.write(image, FileUtil.file(pdf.parentFile, name + "_" + (i + 1) + ".png"))
         }
 
         DesktopUtil.open(pdf.parentFile)

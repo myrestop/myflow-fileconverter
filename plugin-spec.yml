@@ -18,7 +18,6 @@ platforms:
   - WINDOWS
   - MACOS
   - LINUX
-language-bundle-name: top.myrest.myflow.fileconverter.LanguageBundle
 actions:
   - logo: ./logos/pdf2image.png
     keywords:
@@ -26,3 +25,9 @@ actions:
       - pdf2image
     handler: top.myrest.myflow.fileconverter.Pdf2ImageActionHandler
     name-bundle-id: pdf-to-image
+  - logo: logos/file/csv.png
+    keywords:
+      - '*'
+      - csv2json
+    handler: top.myrest.myflow.fileconverter.Csv2JsonActionHandler
+    name-bundle-id: csv-to-json
