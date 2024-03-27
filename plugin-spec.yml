@@ -5,6 +5,7 @@ names:
 entry: ./myflow-fileconverter.jar
 version: 1.0.3
 logo: ./logos/file_converter.png
+source-code: https://github.com/myrestop/myflow-fileconverter
 compatible-version:
   since-build: 477
   until-build: 477
