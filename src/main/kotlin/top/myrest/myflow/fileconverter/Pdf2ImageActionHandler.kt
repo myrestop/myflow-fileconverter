@@ -6,66 +6,21 @@ import cn.hutool.core.io.FileUtil
 import cn.hutool.core.swing.DesktopUtil
 import org.apache.pdfbox.pdmodel.PDDocument
 import org.apache.pdfbox.rendering.PDFRenderer
-import top.myrest.myflow.AppInfo
-import top.myrest.myflow.action.ActionKeywordHandler
-import top.myrest.myflow.action.ActionParam
-import top.myrest.myflow.action.ActionResult
-import top.myrest.myflow.action.highlight
-import top.myrest.myflow.action.singleCallback
-import top.myrest.myflow.language.LanguageBundle
 
-class Pdf2ImageActionHandler : ActionKeywordHandler {
+class Pdf2ImageActionHandler : BaseConverterActionHandler("pdf2image", "./logos/pdf2image.png", "pdf-to-image") {
 
-    private val actionId = "pdf2image"
+    override fun isSupport(file: File): Boolean = file.exists() && file.name.endsWith(".pdf")
 
-    override fun queryAction(param: ActionParam): List<ActionResult> {
-        if (param.args.isEmpty()) {
-            return listOf(
-                ActionResult(
-                    actionId = actionId,
-                    score = 100,
-                    logo = "./logos/pdf2image.png",
-                    title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, "pdf-to-image").highlight),
-                    callbacks = singleCallback {
-                        val list = AppInfo.actionWindow.showFileChooser(filenameFilter = { _, name -> name?.isPdf() == true })
-                        convert2Image(list.firstOrNull())
-                    },
-                ),
-            )
-        }
-
-        val firstArg = param.args.first()
-        if (firstArg.type.isFile() && firstArg.value is File && (firstArg.value as File).name.isPdf()) {
-            return listOf(
-                ActionResult(
-                    actionId = actionId,
-                    score = 98,
-                    logo = "./logos/pdf2image.png",
-                    title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, "pdf-to-image").highlight),
-                    callbacks = singleCallback(result = firstArg.value) { if (it is File) convert2Image(it) },
-                ),
-            )
-        }
-
-        return emptyList()
-    }
-
-    private fun convert2Image(pdf: File?) {
-        if (pdf == null || !pdf.name.isPdf()) {
-            return
-        }
-
-        val name = FileUtil.mainName(pdf)
-        val doc = PDDocument.load(pdf)
+    override fun convert(file: File) {
+        val name = FileUtil.mainName(file)
+        val doc = PDDocument.load(file)
         val renderer = PDFRenderer(doc)
 
         for (i in 0 until doc.numberOfPages) {
             val image = renderer.renderImageWithDPI(i, 300f)
-            ImgUtil.write(image, FileUtil.file(pdf.parentFile, name + "_" + (i + 1) + ".png"))
+            ImgUtil.write(image, FileUtil.file(file.parentFile, name + "_" + (i + 1) + ".png"))
         }
 
-        DesktopUtil.open(pdf.parentFile)
+        DesktopUtil.open(file.parentFile)
     }
-
-    private fun String.isPdf(): Boolean = this.endsWith(".pdf")
 }
