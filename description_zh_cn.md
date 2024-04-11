@@ -1,1 +1,1 @@
-这是一个文件转换插件，当前支持PDF转换为图片，CSV文件转JSON文件。
+这是一个文件转换插件，当前支持PDF转换为图片，CSV文件转JSON文件，HTML转Markdown，Markdown转HTML，Markdown转Docx。
