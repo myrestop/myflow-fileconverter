@@ -9,7 +9,7 @@ import org.apache.pdfbox.rendering.PDFRenderer
 
 class Pdf2ImageActionHandler : BaseConverterActionHandler("pdf2image", "./logos/pdf2image.png", "pdf-to-image") {
 
-    override fun isSupport(file: File): Boolean = file.exists() && file.name.endsWith(".pdf")
+    override fun isSupport(file: File): Boolean = file.exists() && file.isFile && file.name.endsWith(".pdf")
 
     override fun convert(file: File) {
         val name = FileUtil.mainName(file)

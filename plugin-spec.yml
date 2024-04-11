@@ -3,12 +3,12 @@ name: File Converter
 names:
   ZH_CN: 文件转换器
 entry: ./myflow-fileconverter.jar
-version: 1.0.3
+version: 1.0.4
 logo: ./logos/file_converter.png
 source-code: https://github.com/myrestop/myflow-fileconverter
 compatible-version:
   since-build: 477
-  until-build: 477
+  until-build: 661
 owner:
   name: myrest
   email: mrpan@myrest.top
@@ -32,3 +32,21 @@ actions:
       - csv2json
     handler: top.myrest.myflow.fileconverter.Csv2JsonActionHandler
     name-bundle-id: csv-to-json
+  - logo: logos/file/html.png
+    keywords:
+      - '*'
+      - html2md
+    handler: top.myrest.myflow.fileconverter.Html2MarkdownActionHandler
+    name-bundle-id: html-to-md
+  - logo: logos/file/html.png
+    keywords:
+      - '*'
+      - md2html
+    handler: top.myrest.myflow.fileconverter.Markdown2HtmlActionHandler
+    name-bundle-id: md-to-html
+  - logo: logos/file/word.png
+    keywords:
+      - '*'
+      - md2docx
+    handler: top.myrest.myflow.fileconverter.Markdown2DocxActionHandler
+    name-bundle-id: md2docx

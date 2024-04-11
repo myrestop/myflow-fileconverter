@@ -9,7 +9,7 @@ import top.myrest.myflow.util.Jackson.toJsonString
 
 class Csv2JsonActionHandler : BaseConverterActionHandler("csv2json", "logos/file/csv.png", "csv-to-json") {
 
-    override fun isSupport(file: File): Boolean = file.exists() && file.name.endsWith(".csv")
+    override fun isSupport(file: File): Boolean = file.exists() && file.isFile && file.name.endsWith(".csv")
 
     override fun convert(file: File) {
         val name = FileUtil.mainName(file)

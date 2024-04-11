@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "top.myrest"
-version = "1.0.3"
+version = "1.0.4"
 val entry = "$name.jar"
 
 repositories {
@@ -19,12 +19,14 @@ repositories {
     google()
 }
 
-val myflowVersion = "1.0.9"
+val myflowVersion = "1.1.0"
 
 var myflowDependency: Dependency? = null
 var jetbrainsComposeDependency: Dependency? = null
 dependencies {
     implementation("org.apache.pdfbox:pdfbox:2.0.28")
+    implementation("com.vladsch.flexmark:flexmark-all:0.64.8")
+    implementation("com.vladsch.flexmark:flexmark-docx-converter:0.64.8")
     jetbrainsComposeDependency = implementation(compose.desktop.currentOs)
     myflowDependency = implementation("top.myrest:myflow-kit:$myflowVersion")
     testImplementation("top.myrest:myflow-baseimpl:$myflowVersion")
