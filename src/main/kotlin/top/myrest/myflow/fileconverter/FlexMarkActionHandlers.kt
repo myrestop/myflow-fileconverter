@@ -33,7 +33,7 @@ class Html2MarkdownActionHandler : BaseConverterActionHandler("html2md", "logos/
     }
 }
 
-class Markdown2HtmlActionHandler : BaseConverterActionHandler("html2md", "logos/file/html.png", "html-to-md") {
+class Markdown2HtmlActionHandler : BaseConverterActionHandler("md2html", "logos/file/html.png", "md-to-html") {
 
     override fun isSupport(file: File): Boolean = file.exists() && file.isFile && file.name.endsWith(".md")
 
