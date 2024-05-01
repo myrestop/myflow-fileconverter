@@ -27,7 +27,9 @@ abstract class BaseConverterActionHandler(
                     score = 100,
                     logo = logo,
                     title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, nameBundleId).highlight),
-                    callbacks = singleCallback {
+                    callbacks = singleCallback(
+                        label = AppInfo.currLanguageBundle.shared.execute,
+                    ) {
                         val file = AppInfo.actionWindow.showFileChooser(filenameFilter = { file, _ -> isSupport(file) }).firstOrNull()
                         if (file != null && isSupport(file)) {
                             convert(file)
@@ -45,7 +47,12 @@ abstract class BaseConverterActionHandler(
                     score = 98,
                     logo = logo,
                     title = listOf(LanguageBundle.getBy(Constants.PLUGIN_ID, nameBundleId).highlight),
-                    callbacks = singleCallback(result = firstArg.value) { if (it is File && isSupport(it)) convert(it) },
+                    callbacks = singleCallback(
+                        result = firstArg.value,
+                        label = AppInfo.currLanguageBundle.shared.execute,
+                    ) {
+                        if (it is File && isSupport(it)) convert(it)
+                    },
                 ),
             )
         }
