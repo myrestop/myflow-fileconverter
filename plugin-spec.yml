@@ -3,12 +3,12 @@ name: File Converter
 names:
   ZH_CN: 文件转换器
 entry: ./myflow-fileconverter.jar
-version: 1.0.5
+version: 1.0.6
 logo: ./logos/file_converter.png
 source-code: https://github.com/myrestop/myflow-fileconverter
 compatible-version:
-  since-build: 477
-  until-build: 661
+  since-build: 939
+  until-build: 939
 owner:
   name: myrest
   email: mrpan@myrest.top
