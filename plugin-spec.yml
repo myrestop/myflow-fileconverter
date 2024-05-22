@@ -3,7 +3,7 @@ name: File Converter
 names:
   ZH_CN: 文件转换器
 entry: ./myflow-fileconverter.jar
-version: 1.0.6
+version: 1.0.7
 logo: ./logos/file_converter.png
 source-code: https://github.com/myrestop/myflow-fileconverter
 compatible-version:
@@ -50,3 +50,9 @@ actions:
       - md2docx
     handler: top.myrest.myflow.fileconverter.Markdown2DocxActionHandler
     name-bundle-id: md-to-docx
+  - logo: logos/file/pdf.png
+    keywords:
+      - '*'
+      - pdf2docx
+    handler: top.myrest.myflow.fileconverter.Pdf2DocxActionHandler
+    name-bundle-id: pdf-to-docx

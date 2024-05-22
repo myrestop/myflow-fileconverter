@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "top.myrest"
-version = "1.0.6"
+version = "1.0.7"
 val entry = "$name.jar"
 
 repositories {
@@ -27,6 +27,7 @@ dependencies {
     implementation("org.apache.pdfbox:pdfbox:2.0.28")
     implementation("com.vladsch.flexmark:flexmark-all:0.64.8")
     implementation("com.vladsch.flexmark:flexmark-docx-converter:0.64.8")
+    implementation("com.luhuiguo:aspose-pdf:23.1")
     jetbrainsComposeDependency = implementation(compose.desktop.currentOs)
     myflowDependency = implementation("top.myrest:myflow-kit:$myflowVersion")
     testImplementation("top.myrest:myflow-baseimpl:$myflowVersion")
@@ -37,6 +38,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.jar {
+    isZip64 = true
     archiveFileName.set(entry)
     val exists = mutableSetOf<String>()
     val files = mutableListOf<Any>()

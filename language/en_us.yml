@@ -1,4 +1,5 @@
 pdf-to-image: PDF To Image
+pdf-to-docx: PDF To Docx
 csv-to-json: CSV To JSON
 html-to-md: HTML To Markdown
 md-to-html: Markdown To HTML

@@ -1,4 +1,5 @@
 pdf-to-image: PDF转图片
+pdf-to-docx: PDF转Docx
 csv-to-json: CSV转JSON
 html-to-md: HTML转Markdown
 md-to-html: Markdown转HTML

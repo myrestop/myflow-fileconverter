@@ -1,1 +1,1 @@
-This is a file converter plugin, currently supports convert pdf to image, csv to json, html to markdown, markdown to html, markdown to docx.
+This is a file converter plugin, currently supports convert pdf to image, csv to json, html to markdown, markdown to html, markdown to docx, pdf to docx.
